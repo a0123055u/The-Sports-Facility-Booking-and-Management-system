@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="modelModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="modelModel1StoreContainer">
+          <EntitySet Name="bookingdetails" EntityType="modelModel1.Store.bookingdetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="members" EntityType="modelModel1.Store.members" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sportfacility" EntityType="modelModel1.Store.sportfacility" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__bookingde__equip__15502E78" Association="modelModel1.Store.FK__bookingde__equip__15502E78">
+            <End Role="sportfacility" EntitySet="sportfacility" />
+            <End Role="bookingdetails" EntitySet="bookingdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bookingde__membe__145C0A3F" Association="modelModel1.Store.FK__bookingde__membe__145C0A3F">
+            <End Role="members" EntitySet="members" />
+            <End Role="bookingdetails" EntitySet="bookingdetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="bookingdetails">
+          <Key>
+            <PropertyRef Name="bookingid" />
+          </Key>
+          <Property Name="bookingid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="memberid" Type="int" Nullable="false" />
+          <Property Name="equipmentid" Type="int" Nullable="false" />
+          <Property Name="dateofbooking" Type="date" Nullable="false" />
+          <Property Name="8-9 am" Type="smallint" Nullable="false" />
+          <Property Name="9-10 am" Type="smallint" Nullable="false" />
+          <Property Name="10-11 am" Type="smallint" Nullable="false" />
+          <Property Name="11-12 noon" Type="smallint" Nullable="false" />
+          <Property Name="2-3 pm" Type="smallint" Nullable="false" />
+          <Property Name="3-4 pm" Type="smallint" Nullable="false" />
+          <Property Name="[4-5 pm" Type="smallint" Nullable="false" />
+          <Property Name="5-6 pm" Type="smallint" Nullable="false" />
+          <Property Name="6-7 pm" Type="smallint" Nullable="false" />
+          <Property Name="7-8 pm" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="members">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="membername" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="membericno" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="phonenumber" Type="nvarchar" MaxLength="12" />
+          <Property Name="Emailid" Type="nvarchar" MaxLength="25" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sportfacility">
+          <Key>
+            <PropertyRef Name="equipmentid" />
+          </Key>
+          <Property Name="equipmentname" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="equipmentid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="facilityavailable" Type="smallint" Nullable="false" />
+          <Property Name="remarks" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__bookingde__equip__15502E78">
+          <End Role="sportfacility" Type="modelModel1.Store.sportfacility" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="bookingdetails" Type="modelModel1.Store.bookingdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sportfacility">
+              <PropertyRef Name="equipmentid" />
+            </Principal>
+            <Dependent Role="bookingdetails">
+              <PropertyRef Name="equipmentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bookingde__membe__145C0A3F">
+          <End Role="members" Type="modelModel1.Store.members" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="bookingdetails" Type="modelModel1.Store.bookingdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="members">
+              <PropertyRef Name="memberid" />
+            </Principal>
+            <Dependent Role="bookingdetails">
+              <PropertyRef Name="memberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="modelModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="modelEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bookingdetails" EntityType="modelModel1.bookingdetail" />
+          <EntitySet Name="members" EntityType="modelModel1.member" />
+          <EntitySet Name="sportfacilities" EntityType="modelModel1.sportfacility" />
+          <AssociationSet Name="FK__bookingde__equip__15502E78" Association="modelModel1.FK__bookingde__equip__15502E78">
+            <End Role="sportfacility" EntitySet="sportfacilities" />
+            <End Role="bookingdetails" EntitySet="bookingdetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bookingde__membe__145C0A3F" Association="modelModel1.FK__bookingde__membe__145C0A3F">
+            <End Role="members" EntitySet="members" />
+            <End Role="bookingdetails" EntitySet="bookingdetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="bookingdetail">
+          <Key>
+            <PropertyRef Name="bookingid" />
+          </Key>
+          <Property Name="bookingid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="memberid" Type="Int32" Nullable="false" />
+          <Property Name="equipmentid" Type="Int32" Nullable="false" />
+          <Property Name="dateofbooking" Type="DateTime" Nullable="false" />
+          <Property Name="C8_9_am" Type="Int16" Nullable="false" />
+          <Property Name="C9_10_am" Type="Int16" Nullable="false" />
+          <Property Name="C10_11_am" Type="Int16" Nullable="false" />
+          <Property Name="C11_12_noon" Type="Int16" Nullable="false" />
+          <Property Name="C2_3_pm" Type="Int16" Nullable="false" />
+          <Property Name="C3_4_pm" Type="Int16" Nullable="false" />
+          <Property Name="C_4_5_pm" Type="Int16" Nullable="false" />
+          <Property Name="C5_6_pm" Type="Int16" Nullable="false" />
+          <Property Name="C6_7_pm" Type="Int16" Nullable="false" />
+          <Property Name="C7_8_pm" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="sportfacility" Relationship="modelModel1.FK__bookingde__equip__15502E78" FromRole="bookingdetails" ToRole="sportfacility" />
+          <NavigationProperty Name="member" Relationship="modelModel1.FK__bookingde__membe__145C0A3F" FromRole="bookingdetails" ToRole="members" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="membername" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="membericno" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="phonenumber" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="Emailid" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Sex" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="bookingdetails" Relationship="modelModel1.FK__bookingde__membe__145C0A3F" FromRole="members" ToRole="bookingdetails" />
+        </EntityType>
+        <EntityType Name="sportfacility">
+          <Key>
+            <PropertyRef Name="equipmentid" />
+          </Key>
+          <Property Name="equipmentname" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="equipmentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="facilityavailable" Type="Int16" Nullable="false" />
+          <Property Name="remarks" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="bookingdetails" Relationship="modelModel1.FK__bookingde__equip__15502E78" FromRole="sportfacility" ToRole="bookingdetails" />
+        </EntityType>
+        <Association Name="FK__bookingde__equip__15502E78">
+          <End Role="sportfacility" Type="modelModel1.sportfacility" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="bookingdetails" Type="modelModel1.bookingdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sportfacility">
+              <PropertyRef Name="equipmentid" />
+            </Principal>
+            <Dependent Role="bookingdetails">
+              <PropertyRef Name="equipmentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bookingde__membe__145C0A3F">
+          <End Role="members" Type="modelModel1.member" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="bookingdetails" Type="modelModel1.bookingdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="members">
+              <PropertyRef Name="memberid" />
+            </Principal>
+            <Dependent Role="bookingdetails">
+              <PropertyRef Name="memberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="modelModel1StoreContainer" CdmEntityContainer="modelEntities2">
+          <EntitySetMapping Name="bookingdetails">
+            <EntityTypeMapping TypeName="modelModel1.bookingdetail">
+              <MappingFragment StoreEntitySet="bookingdetails">
+                <ScalarProperty Name="bookingid" ColumnName="bookingid" />
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="equipmentid" ColumnName="equipmentid" />
+                <ScalarProperty Name="dateofbooking" ColumnName="dateofbooking" />
+                <ScalarProperty Name="C8_9_am" ColumnName="8-9 am" />
+                <ScalarProperty Name="C9_10_am" ColumnName="9-10 am" />
+                <ScalarProperty Name="C10_11_am" ColumnName="10-11 am" />
+                <ScalarProperty Name="C11_12_noon" ColumnName="11-12 noon" />
+                <ScalarProperty Name="C2_3_pm" ColumnName="2-3 pm" />
+                <ScalarProperty Name="C3_4_pm" ColumnName="3-4 pm" />
+                <ScalarProperty Name="C_4_5_pm" ColumnName="[4-5 pm" />
+                <ScalarProperty Name="C5_6_pm" ColumnName="5-6 pm" />
+                <ScalarProperty Name="C6_7_pm" ColumnName="6-7 pm" />
+                <ScalarProperty Name="C7_8_pm" ColumnName="7-8 pm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="members">
+            <EntityTypeMapping TypeName="modelModel1.member">
+              <MappingFragment StoreEntitySet="members">
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="membername" ColumnName="membername" />
+                <ScalarProperty Name="membericno" ColumnName="membericno" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="Emailid" ColumnName="Emailid" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sportfacilities">
+            <EntityTypeMapping TypeName="modelModel1.sportfacility">
+              <MappingFragment StoreEntitySet="sportfacility">
+                <ScalarProperty Name="equipmentname" ColumnName="equipmentname" />
+                <ScalarProperty Name="equipmentid" ColumnName="equipmentid" />
+                <ScalarProperty Name="facilityavailable" ColumnName="facilityavailable" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model2">
+        <EntityTypeShape EntityType="modelModel1.bookingdetail" Width="1.5" PointX="3" PointY="1" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="modelModel1.member" Width="1.5" PointX="0.75" PointY="1.75" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="modelModel1.sportfacility" Width="1.5" PointX="0.75" PointY="7.125" Height="1.9802864583333326" IsExpanded="true" />
+        <AssociationConnector Association="modelModel1.FK__bookingde__equip__15502E78" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.1151432291666659" />
+          <ConnectorPoint PointX="3.75" PointY="8.1151432291666659" />
+          <ConnectorPoint PointX="3.75" PointY="5.0956022135416656" />
+        </AssociationConnector>
+        <AssociationConnector Association="modelModel1.FK__bookingde__membe__145C0A3F" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.0285953776041663" />
+          <ConnectorPoint PointX="3" PointY="3.0285953776041663" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

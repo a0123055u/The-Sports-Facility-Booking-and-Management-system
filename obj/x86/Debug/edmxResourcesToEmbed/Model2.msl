@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="modelModel1StoreContainer" CdmEntityContainer="modelEntities2">
+    <EntitySetMapping Name="bookingdetails">
+      <EntityTypeMapping TypeName="modelModel1.bookingdetail">
+        <MappingFragment StoreEntitySet="bookingdetails">
+          <ScalarProperty Name="bookingid" ColumnName="bookingid" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="equipmentid" ColumnName="equipmentid" />
+          <ScalarProperty Name="dateofbooking" ColumnName="dateofbooking" />
+          <ScalarProperty Name="C8_9_am" ColumnName="8-9 am" />
+          <ScalarProperty Name="C9_10_am" ColumnName="9-10 am" />
+          <ScalarProperty Name="C10_11_am" ColumnName="10-11 am" />
+          <ScalarProperty Name="C11_12_noon" ColumnName="11-12 noon" />
+          <ScalarProperty Name="C2_3_pm" ColumnName="2-3 pm" />
+          <ScalarProperty Name="C3_4_pm" ColumnName="3-4 pm" />
+          <ScalarProperty Name="C_4_5_pm" ColumnName="[4-5 pm" />
+          <ScalarProperty Name="C5_6_pm" ColumnName="5-6 pm" />
+          <ScalarProperty Name="C6_7_pm" ColumnName="6-7 pm" />
+          <ScalarProperty Name="C7_8_pm" ColumnName="7-8 pm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="members">
+      <EntityTypeMapping TypeName="modelModel1.member">
+        <MappingFragment StoreEntitySet="members">
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="membername" ColumnName="membername" />
+          <ScalarProperty Name="membericno" ColumnName="membericno" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+          <ScalarProperty Name="Emailid" ColumnName="Emailid" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sportfacilities">
+      <EntityTypeMapping TypeName="modelModel1.sportfacility">
+        <MappingFragment StoreEntitySet="sportfacility">
+          <ScalarProperty Name="equipmentname" ColumnName="equipmentname" />
+          <ScalarProperty Name="equipmentid" ColumnName="equipmentid" />
+          <ScalarProperty Name="facilityavailable" ColumnName="facilityavailable" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

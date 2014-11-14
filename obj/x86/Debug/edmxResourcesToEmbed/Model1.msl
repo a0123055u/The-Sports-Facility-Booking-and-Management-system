@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="modelModelStoreContainer" CdmEntityContainer="modelEntities1">
+    <EntitySetMapping Name="bookingdetails">
+      <EntityTypeMapping TypeName="modelModel.bookingdetail">
+        <MappingFragment StoreEntitySet="bookingdetails">
+          <ScalarProperty Name="bookingid" ColumnName="bookingid" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="equipmentid" ColumnName="equipmentid" />
+          <ScalarProperty Name="dateofbooking" ColumnName="dateofbooking" />
+          <ScalarProperty Name="slot1" ColumnName="slot1" />
+          <ScalarProperty Name="slot2" ColumnName="slot2" />
+          <ScalarProperty Name="slot3" ColumnName="slot3" />
+          <ScalarProperty Name="slot4" ColumnName="slot4" />
+          <ScalarProperty Name="slot5" ColumnName="slot5" />
+          <ScalarProperty Name="slot6" ColumnName="slot6" />
+          <ScalarProperty Name="slot7" ColumnName="slot7" />
+          <ScalarProperty Name="slot8" ColumnName="slot8" />
+          <ScalarProperty Name="slot9" ColumnName="slot9" />
+          <ScalarProperty Name="slot10" ColumnName="slot10" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="members">
+      <EntityTypeMapping TypeName="modelModel.member">
+        <MappingFragment StoreEntitySet="members">
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="membername" ColumnName="membername" />
+          <ScalarProperty Name="membericno" ColumnName="membericno" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+          <ScalarProperty Name="Emailid" ColumnName="Emailid" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sportfacilities">
+      <EntityTypeMapping TypeName="modelModel.sportfacility">
+        <MappingFragment StoreEntitySet="sportfacility">
+          <ScalarProperty Name="equipmentname" ColumnName="equipmentname" />
+          <ScalarProperty Name="equipmentid" ColumnName="equipmentid" />
+          <ScalarProperty Name="facilityavailable" ColumnName="facilityavailable" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

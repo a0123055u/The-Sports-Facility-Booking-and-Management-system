@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="modelModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="modelModelStoreContainer">
+    <EntitySet Name="bookingdetails" EntityType="modelModel.Store.bookingdetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="members" EntityType="modelModel.Store.members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sportfacility" EntityType="modelModel.Store.sportfacility" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__bookingde__equip__15502E78" Association="modelModel.Store.FK__bookingde__equip__15502E78">
+      <End Role="sportfacility" EntitySet="sportfacility" />
+      <End Role="bookingdetails" EntitySet="bookingdetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__bookingde__membe__145C0A3F" Association="modelModel.Store.FK__bookingde__membe__145C0A3F">
+      <End Role="members" EntitySet="members" />
+      <End Role="bookingdetails" EntitySet="bookingdetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="bookingdetails">
+    <Key>
+      <PropertyRef Name="bookingid" />
+    </Key>
+    <Property Name="bookingid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="memberid" Type="int" Nullable="false" />
+    <Property Name="equipmentid" Type="int" Nullable="false" />
+    <Property Name="dateofbooking" Type="date" Nullable="false" />
+    <Property Name="slot1" Type="smallint" Nullable="false" />
+    <Property Name="slot2" Type="smallint" Nullable="false" />
+    <Property Name="slot3" Type="smallint" Nullable="false" />
+    <Property Name="slot4" Type="smallint" Nullable="false" />
+    <Property Name="slot5" Type="smallint" Nullable="false" />
+    <Property Name="slot6" Type="smallint" Nullable="false" />
+    <Property Name="slot7" Type="smallint" Nullable="false" />
+    <Property Name="slot8" Type="smallint" Nullable="false" />
+    <Property Name="slot9" Type="smallint" Nullable="false" />
+    <Property Name="slot10" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="members">
+    <Key>
+      <PropertyRef Name="memberid" />
+    </Key>
+    <Property Name="memberid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="membername" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="membericno" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="phonenumber" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="sportfacility">
+    <Key>
+      <PropertyRef Name="equipmentid" />
+    </Key>
+    <Property Name="equipmentname" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="equipmentid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="facilityavailable" Type="smallint" Nullable="false" />
+    <Property Name="remarks" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__bookingde__equip__15502E78">
+    <End Role="sportfacility" Type="modelModel.Store.sportfacility" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="bookingdetails" Type="modelModel.Store.bookingdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sportfacility">
+        <PropertyRef Name="equipmentid" />
+      </Principal>
+      <Dependent Role="bookingdetails">
+        <PropertyRef Name="equipmentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__bookingde__membe__145C0A3F">
+    <End Role="members" Type="modelModel.Store.members" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="bookingdetails" Type="modelModel.Store.bookingdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="members">
+        <PropertyRef Name="memberid" />
+      </Principal>
+      <Dependent Role="bookingdetails">
+        <PropertyRef Name="memberid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
